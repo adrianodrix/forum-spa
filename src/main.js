@@ -12,8 +12,6 @@ Vue.use(VueResource)
 
 Vue.http.options.root = 'http://forum.dev/api'
 Vue.http.headers.common['Authorization'] = 'Bearer ' + localStorage.getItem('id_token')
-Vue.http.options.emulateJSON = true
-Vue.http.options.emulateHTTP = true
 
 // 1. Define route components.
 // These can be imported from other files
@@ -37,7 +35,7 @@ const routes = [
     {path: '/signin', name: 'auth.signin', component: SignIn},
     {path: '/topic/:topicId', name: 'topic', component: Topic},
     {path: '/section/:sectionId', name: 'topics', component: Topics},
-    {path: '/topic/new', name: 'topic.new', component: NewTopic},
+    {path: '/new/topic', name: 'topic.new', component: NewTopic},
 ]
 
 // 3. Create the router instance and pass the `routes` option

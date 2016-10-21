@@ -6,10 +6,6 @@ const store = {}
 
 export default store
 
-store.state = {
-    topic: null
-}
-
 store.getSections = () => {
     "use strict";
     return new Promise((resolve, reject) => {
@@ -55,6 +51,29 @@ store.replyToTopicById = (id, body) => {
 
         Vue.http.post(
             'topic/'+ id +'/post',
+            data
+        ).then(
+            response => {
+                resolve(response.data.data)
+            },
+            reject => {
+                reject(reject.data.data)
+            }
+        )
+    })
+}
+
+store.createTopic = (section, title, body) => {
+    "use strict";
+    return new Promise((resolve, reject) => {
+        var data = {
+            "section_id": section,
+            "title": title,
+            "body": body
+        }
+
+        Vue.http.post(
+            'topic',
             data
         ).then(
             response => {
