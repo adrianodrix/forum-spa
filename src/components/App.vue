@@ -22,19 +22,19 @@
 <style src="assets/sass/app.scss" lang="sass"></style>
 
 <script>
-/* eslint-disable */
 import auth from '../auth'
 
 export default {
-    data () {
-        return {
-            auth: auth
-        }
-    },
-
-    mounted () {
-        auth.check()
+  data () {
+    return {
+      auth: auth
     }
-}
+  },
 
+  mounted () {
+    auth.check()
+    console.log('change title here')
+    document.title = 'Forum App!'
+  }
+}
 </script>

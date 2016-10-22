@@ -65,9 +65,7 @@ export default {
     },
 
     methods: {
-        marked (value) {
-            return marked(value)
-        },
+        marked,
         reply (e) {
             e.preventDefault()
             store.replyToTopicById(this.topic.id, this.body).then( post => {
